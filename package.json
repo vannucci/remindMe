@@ -2,7 +2,7 @@
   "name": "remindMe",
   "version": "0.1.0",
   "engines": {
-    "node": "^8.12.0"
+    "node": "^0.8.19"
   },
   "description": "This is the main portion of the RemindMe! project, aiming to turn your texts into your own working terminal",
   "main": "index.js",
