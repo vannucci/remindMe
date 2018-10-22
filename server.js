@@ -7,14 +7,14 @@ const port = process.env.PORT || 3000;
 
 const client = require('twilio')(accountsid,authtoken);
 
-client.messages
-  .create({
-    body: "RemindMe! is up and running",
-    from: "+12016251701",
-    to: "+17327786522"
-  })
-  .then(message => console.log(message.sid))
-  .done();
+// client.messages
+//   .create({
+//     body: "RemindMe! is up and running",
+//     from: "+12016251701",
+//     to: "+17327786522"
+//   })
+//   .then(message => console.log(message.sid))
+//   .done();
 
 // mongoose.connect();
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
@@ -23,7 +23,7 @@ const app = express();
 app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
 
-  twiml.message('It\'s not the Volvo you were expecting...<3');
+  twiml.message(`You asked for, ${req.body} at ${req.date_sent}, is that correct?` );
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end(twiml.toString());
 });
